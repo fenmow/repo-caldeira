@@ -48,6 +48,17 @@ public class Jogador {
     }
 
     public void repararPicareta(int quantidadeDeReparo) {
+        
+        if (this.picareta == null) {
+            System.out.println("Você não possui uma picareta para reparar.");
+            return;
+        }
+
+        if (quantidadeDeReparo <= 0) {
+            System.out.println("A quantidade de reparo deve ser maior que zero.");
+            return;
+        }
+        
         if (this.picareta.getDurabilidade() == this.picareta.getDurabilidadeMaxima()) {
             System.out.println("A picareta não precisa de reparos.");
             return;
@@ -71,6 +82,17 @@ public class Jogador {
     }
 
     public void minerar(int blocos) {
+
+        if (blocos <= 0) {
+            System.out.println("A quantidade de blocos deve ser maior que zero.");
+            return;
+        }
+
+        if (this.picareta == null) {
+            System.out.println("Você não possui uma picareta para minerar.");
+            return;
+        }
+        
         if (this.picareta.getDurabilidade() == 0) {
             System.out.println("Não é possível minerar com uma picareta quebrada.");
             return;
